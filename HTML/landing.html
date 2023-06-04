@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="es">
+  <link rel="stylesheet" href="../CSS/landing.css">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bolsa de Trabajo IPN</title>
+</head>
+<body>
+  <header>
+    <h1>Bolsa de Trabajo IPN</h1>
+    <nav>
+      <a id="login-icon" href="login.html">
+        <img src="" alt="Iniciar sesión">
+      </a>
+    </nav>
+  </header>
+
+  <section id="news-container">
+    <div class="slideshow">
+      <article class="news-item active">
+        <img src="" alt="Noticia 1">
+        <h2 class="news-title">¡Nueva convocatoria de empleo!</h2>
+        <p class="news-content"></p>
+      </article>
+      <article class="news-item">
+        <img src="" alt="Noticia 2">
+        <h2 class="news-title"></h2>
+        <p class="news-content">.</p>
+      </article>
+      <article class="news-item">
+        <img src="" alt="Noticia 3">
+        <h2 class="news-title"></h2>
+        <p class="news-content"></p>
+      </article>
+    </div>
+  </section>
+
+  <main id="features">
+    <h2>Características de nuestra bolsa de trabajo</h2>
+    <article class="feature">
+      <img src="" alt="Característica 1">
+      <h3>Am</h3>
+      <p>s.</p>
+    </article>
+    <article class="feature">
+      <img src="" alt="Característica 2">
+      <h3>F</h3>
+      <p>N.</p>
+    </article>
+    <article class="feature">
+      <img src="" alt="Característica 3">
+      <h3>C</h3>
+      <p>os.</p>
+    </article>
+  </main>
+
+  <section id="testimonials">
+    <h2>Testimonios de usuarios satisfechos</h2>
+    <article class="testimonial">
+      <img src="testimonial1.jpg" alt="Testimonio 1">
+      <h3>María López</h3>
+      <p>""</p>
+    </article>
+    <article class="testimonial">
+      <img src="testimonial2.jpg" alt="Testimonio 2">
+      <h3>Juan Pérez</h3>
+      <p>""</p>
+    </article>
+    <article class="testimonial">
+      <img src="testimonial3.jpg" alt="Testimonio 3">
+      <h3>Carlos Gómez</h3>
+      <p>""</p>
+    </article>
+  </section>
+  
+
+  <footer>
+    <p>Derechos reservados &copy; 2023 Bolsa de Trabajo IPN</p>
+    <div class="social-icons">
+      <a href="#"><img src="" alt="Facebook"></a>
+      <a href="#"><img src="" alt="Twitter"></a>
+      <a href="#"><img src="" alt="LinkedIn"></a>
+    </div>
+  </footer>
+
+  <aside id="scroll-to-top">&#9650;</aside>
+
+
+  <script>
+    window.addEventListener("DOMContentLoaded", function() {
+     
+      var newsInterval = setInterval(showNextNews, 5000); 
+
+      
+      var testimonialInterval = setInterval(showNextTestimonial, 7000); 
+
+     
+      function showNextNews() {
+        var newsItems = document.getElementsByClassName("news-item");
+        var activeIndex = Array.from(newsItems).findIndex(function(item) {
+          return item.classList.contains("active");
+        });
+        var nextIndex = (activeIndex + 1) % newsItems.length;
+
+        newsItems[activeIndex].classList.remove("active");
+        newsItems[nextIndex].classList.add("active");
+      }
+
+
+      function showNextTestimonial() {
+        var testimonials = document.getElementsByClassName("testimonial");
+        var activeIndex = Array.from(testimonials).findIndex(function(item) {
+          return item.classList.contains("active");
+        });
+        var nextIndex = (activeIndex + 1) % testimonials.length;
+
+        testimonials[activeIndex].classList.remove("active");
+        testimonials[nextIndex].classList.add("active");
+      }
+    });
+
+    window.onscroll = function() {
+    
+    };
+  </script>
+
+  <script>
+    window.onscroll = function() {scrollFunction()};
+    
+    function scrollFunction() {
+      if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        document.getElementById("scroll-to-top").style.opacity = "1";
+      } else {
+        document.getElementById("scroll-to-top").style.opacity = "0";
+      }
+    }
+    
+    document.getElementById("scroll-to-top").addEventListener("click", function() {
+      document.body.scrollTop = 0;
+      document.documentElement.scrollTop = 0;
+    });
+  </script>
+</body>
+</html>
