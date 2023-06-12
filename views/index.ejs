@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="es">
+  <link rel="stylesheet" href="../public/CSS/landing.css">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bolsa de Trabajo IPN</title>
+</head>
+<body>
+  <header>
+      <nav>
+        <ul>
+          <li><img src="../public/IMG/img.png" alt="logo" class="marc-img1"> </li>
+          <li><a class="titulo">Bolsa de Trabajo IPN</a></li>
+          <li><a class="inisesion" href="login">Iniciar sesión</a></li>            
+        </ul>
+      </nav>
+  </header>
+
+  <section id="news-container">
+    <div class="slideshow">
+      <h2 class="news-title">¡Únete a Alguna de Éstas Grandes Empresas!</h2>
+      <article class="news-item active">
+        <img src="../public/IMG/PHermano.png" alt="Noticia 1">
+      </article>
+      <article class="news-item">
+        <img src="../public/IMG/PChivaLacticas.png" alt="Noticia 2">
+      </article>
+      <article class="news-item">
+        <img src="../public/IMG/PHuasteco.png" alt="Noticia 3">
+      </article>
+    </div>
+  </section>
+
+  <section id="second-container">
+      <div class="Principal">
+        <p>Por y Para Politécnicos</p>
+      </div>
+      <div class="Secundario">
+        <p>Instituto Politécnico Nacional</p>
+        <img src="../public/IMG/LogoIPN.png" alt="LogoIPN" class="imglIPN">
+      </div>
+  </section>
+
+  <main id="features">
+    <p><h2>Redes Sociales</h2><img src="../public/IMG/Twit.png" alt="Logo-Twittt" class="social-icons"></p>
+    <article class="feature">
+      <a class="twitter-timeline" data-width="500" data-height="500" href="https://twitter.com/IPN_MX?ref_src=twsrc%5Etfw">Tweets by IPN_MX</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> 
+    </article>
+
+    <article class="feature">
+      <a class="twitter-timeline" data-width="500" data-height="500" href="https://twitter.com/Trabajando92922?ref_src=twsrc%5Etfw">Tweets by Trabajando92922</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> 
+    </article>
+  </main>
+
+  <section id="testimonials">
+    <h2>Testimonios de usuarios satisfechos</h2>
+    <article class="testimonial">
+      <img src="testimonial1.jpg" alt="Testimonio 1">
+      <h3>María López</h3>
+      <p>""</p>
+    </article>
+    <article class="testimonial">
+      <img src="testimonial2.jpg" alt="Testimonio 2">
+      <h3>Juan Pérez</h3>
+      <p>""</p>
+    </article>
+    <article class="testimonial">
+      <img src="testimonial3.jpg" alt="Testimonio 3">
+      <h3>Carlos Gómez</h3>
+      <p>""</p>
+    </article>
+  </section>
+  
+
+  <footer>
+    <p>Derechos reservados &copy; 2023 Bolsa de Trabajo IPN</p>
+  </footer>
+
+  <aside id="scroll-to-top">&#9650;</aside>
+
+
+  <script>
+    window.addEventListener("DOMContentLoaded", function() {
+     
+      var newsInterval = setInterval(showNextNews, 5000); 
+
+      
+      var testimonialInterval = setInterval(showNextTestimonial, 7000); 
+
+     
+      function showNextNews() {
+        var newsItems = document.getElementsByClassName("news-item");
+        var activeIndex = Array.from(newsItems).findIndex(function(item) {
+          return item.classList.contains("active");
+        });
+        var nextIndex = (activeIndex + 1) % newsItems.length;
+
+        newsItems[activeIndex].classList.remove("active");
+        newsItems[nextIndex].classList.add("active");
+      }
+
+
+      function showNextTestimonial() {
+        var testimonials = document.getElementsByClassName("testimonial");
+        var activeIndex = Array.from(testimonials).findIndex(function(item) {
+          return item.classList.contains("active");
+        });
+        var nextIndex = (activeIndex + 1) % testimonials.length;
+
+        testimonials[activeIndex].classList.remove("active");
+        testimonials[nextIndex].classList.add("active");
+      }
+    });
+
+    window.onscroll = function() {
+    
+    };
+  </script>
+
+  <script>
+    window.onscroll = function() {scrollFunction()};
+    
+    function scrollFunction() {
+      if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        document.getElementById("scroll-to-top").style.opacity = "1";
+      } else {
+        document.getElementById("scroll-to-top").style.opacity = "0";
+      }
+    }
+    
+    document.getElementById("scroll-to-top").addEventListener("click", function() {
+      document.body.scrollTop = 0;
+      document.documentElement.scrollTop = 0;
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+{
+  "devDependencies": {
+    "nodemon": "^2.0.22"
+  },
+  "name": "trabajandoando",
+  "description": "Repo del proyecto de web",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NahumFC/TrabajandoAndo.git"
+  },
+  "keywords": [
+    "web"
+  ],
+  "author": "EquipoDeWeb",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/NahumFC/TrabajandoAndo/issues"
+  },
+  "homepage": "https://github.com/NahumFC/TrabajandoAndo#readme",
+  "dependencies": {
+    "ejs": "^3.1.9",
+    "express": "^4.18.2"
+  }
+}
