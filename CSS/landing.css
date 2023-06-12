@@ -6,30 +6,96 @@ body {
   }
 
   header {
-    background-color: #007bff;
+    position: fixed;
+    display: block;
+    z-index: 1;
+    width: 100%;
+    background-color: #60263d;
     color: #fff;
-    padding: 20px;
-    text-align: center;
+    padding: 3px;
+    border: 4px double rgb(255, 255, 255);
+    border-width: 4px 0;
   }
 
-  #login-icon {
+  .marc-img1{
+    position:relative;
+    display:block;
+    align-content: left;
+    width: 80px; ;
+  }
+
+  nav ul{
+    list-style: none;
+    margin: 0;
+    padding: 10px 30px;
+  }
+  
+  nav li{
+    margin: 0;
+  }
+  
+  .titulo{
     position: absolute;
-    top: 20px;
-    right: 20px;
-    width: 30px;
-    height: 30px;
-    background-color: #fff;
-    border-radius: 50%;
-    display: flex;
+    top: 10px;
+    left: 150px;
+    width: 800px;
+    height: 40px;
     justify-content: center;
     align-items: center;
+
+    font: 700 4em/1 "Oswald", sans-serif;
+  	letter-spacing: 0;
+  	padding: .25em 0 .325em;
+	  display: block;
+	  margin: 0 auto;
+  	text-shadow: 0 0 80px rgba(255,255,255,.5);
+    
+	  background: url(../IMG/animation.png) repeat-y;
+	  -webkit-background-clip: text;
+	  background-clip: text;
+
+	  -webkit-text-fill-color: transparent;
+	  -webkit-animation: aitf 80s linear infinite;
+
+	  -webkit-transform: translate3d(0,0,0);
+	  -webkit-backface-visibility: hidden;
+
+  }
+@-webkit-keyframes aitf {
+	0% { background-position: 0% 50%; }
+	100% { background-position: 100% 50%; }
+}
+
+  .inisesion{
+    border: 1px solid white;
+    border-radius: 20px;
+    background-color: transparent;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
     cursor: pointer;
+    position: absolute;
+    top: 40px;
+    right: 40px;
+    width: 200px;
+    height: 20px;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .inisesion:hover{
+    background-color: rgb(255, 255, 255);
+    color:  black;
   }
 
   #news-container {
-    background-color: #fff;
-    padding: 20px;
+    background-image: url(../IMG/FondoB.jpg);
+    padding: 90px;
     text-align: center;
+    
   }
 
   .news-item {
@@ -41,37 +107,38 @@ body {
     display: block;
   }
 
-  .news-item img {
-    max-width: 100%;
-    height: auto;
-  }
-
   .news-title {
-    font-size: 24px;
-    font-weight: bold;
-    margin-bottom: 10px;
-  }
-
-  .news-content {
-    font-size: 16px;
-    line-height: 1.5;
+    text-align: center;
+    color: #555;
+    font-family: 'Lato', sans-serif;
+    font-size: 2rem;
+    padding: 40px 20px;
   }
 
   .slideshow {
     position: relative;
-    max-width: 400px;
+    max-width: 700px;
     margin: 0 auto;
   }
 
   .slideshow img {
-    width: 100%;
-    height: auto;
+    width: 450px;
+    height: 400px;
   }
 
   #features {
-    background-color: #f9f9f9;
+    background-image: url(../IMG/FondoB.jpg);
     padding: 40px 20px;
     text-align: center;
+    line-height: 1.5;
+    color: #555;
+    font-family: 'Lato', sans-serif;
+    font-size: 1.3rem;
+  }
+
+  .social-icons {
+    width: 40px;
+    height: 30px;
   }
 
   .feature {
@@ -80,21 +147,41 @@ body {
     margin-bottom: 40px;
   }
 
-  .feature img {
-    width: 80px;
-    height: 80px;
-    margin-bottom: 20px;
+  #second-container{
+    background: url(../IMG/pIPN.jpg);
+    background-attachment: fixed;
+    background-size: 100%;
+    overflow: scroll;
+    width: 100%;
+    height: 600px;
   }
 
-  .feature h3 {
-    font-size: 18px;
-    font-weight: bold;
-    margin-bottom: 10px;
+  .Principal{
+    text-align: center;
+    line-height: 80px;
+    font-family: 'Raleway', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: rgb(234, 240, 246);
+    font-size: 48pt;
+    text-align: center;
   }
 
-  .feature p {
-    font-size: 14px;
-    line-height: 1.5;
+  .Secundario{
+    text-align: center;
+    line-height: 40px;
+    font-family: 'Raleway', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: rgb(234, 240, 246);
+    font-size: 20pt;
+    text-align: center;
+  }
+
+
+  .imglIPN{
+    width: 200px;
+    height: 300px;
   }
 
   #testimonials {
@@ -142,7 +229,7 @@ body {
     position: fixed;
     bottom: 20px;
     right: 20px;
-    background-color: #007bff;
+    background-color: #823252;
     color: #fff;
     width: 40px;
     height: 40px;
@@ -156,17 +243,3 @@ body {
     opacity: 0;
   }
 
-  .social-icons {
-    margin-top: 40px;
-    text-align: center;
-  }
-
-  .social-icons a {
-    display: inline-block;
-    margin: 0 10px;
-  }
-
-  .social-icons img {
-    width: 30px;
-    height: 30px;
-  }
