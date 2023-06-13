@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+    <link rel="stylesheet" href="../public/CSS/administradorinicio.css">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Administrador - Bolsa de Trabajo</title>
+  
+</head>
+<body>
+  <header>
+    <h1>Administrador - Bolsa de Trabajo</h1>
+    <a id="logout-icon" href="">&#128682;</a>
+  </header>
+
+  <div class="container">
+    <h2>Bienvenido, Administrador</h2>
+
+    <div class="info-box">
+      <h3>Solicitantes</h3>
+      <p>Total de solicitantes registrados: <span id="total-applicants">0</span></p>
+      <a class="action-link" href="administradorsolicitantes">Ver solicitantes</a>
+    </div>
+
+    <div class="info-box">
+      <h3>Empresas</h3>
+      <p>Total de empresas registradas: <span id="total-companies">0</span></p>
+      <a class="action-link" href="administradorempresa">Ver empresas</a>
+    </div>
+
+    <div class="info-box">
+      <h3>Empleos</h3>
+      <p>Total de empleos publicados: <span id="total-jobs">0</span></p>
+      <a class="action-link" href="administradorempleos">Ver empleos</a>
+    </div>
+  </div>
+
+  <footer>
+    <p>Derechos reservados &copy; 2023 Bolsa de Trabajo</p>
+  </footer>
+
+  <script>
+    
+    const totalApplicants = 100; 
+    const totalCompanies = 50; 
+    const totalJobs = 200; 
+
+
+    document.getElementById('total-applicants').textContent = totalApplicants;
+    document.getElementById('total-companies').textContent = totalCompanies;
+    document.getElementById('total-jobs').textContent = totalJobs;
+  </script>
+</body>
+</html>

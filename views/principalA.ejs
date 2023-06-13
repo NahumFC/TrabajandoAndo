@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+  <link rel="stylesheet" href="../public/CSS/principalA.css">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bolsa de Trabajo</title>
+  <script>
+    function redireccionar() {
+      window.location.href = "perfilA";
+    }
+  </script>
+ 
+</head>
+
+<body>
+  <header>
+    <img id="logo" src="" alt="Logo de la Bolsa de Trabajo">
+
+    <div id="search-container">
+      <input type="text" id="search-input" placeholder="Buscar ofertas de trabajo o perfiles de personas">
+      <button id="search-button">Buscar</button>
+      <button onclick="redireccionar()" id="search-button">Perfil</button>
+    </div>
+  </header>
+
+  <section id="content">
+    <aside class="sidebar">
+      <h2 class="sidebar-title">Áreas</h2>
+      <nav class="sidebar-item">
+        <a class="sidebar-link" href="#area-desarrollo">Desarrollo</a>
+      </nav>
+      <nav class="sidebar-item">
+        <a class="sidebar-link" href="#area-datos">Datos</a>
+      </nav>
+      <nav class="sidebar-item">
+        <a class="sidebar-link" href="#area-redes">Redes</a>
+      </nav>
+      <nav class="sidebar-item">
+        <a class="sidebar-link" href="#area-seguridad">Seguridad</a>
+      </nav>
+    </aside>
+
+    <main id="main-content">
+      <section id="area-desarrollo">
+        <h2>Área de Desarrollo</h2>
+        <article class="job-listing">
+          <h3 class="job-title">Desarrollador Front-end</h3>
+          <p class="company-name">Empresa ABC</p>
+          <p class="job-description">Estamos buscando un desarrollador front-end con experiencia en HTML, CSS y JavaScript. ¡Únete a nuestro equipo!</p>
+          <button class="apply-button">Aplicar</button>
+        </article>
+
+        <article class="job-listing">
+          <h3 class="job-title">Ingeniero de Software</h3>
+          <p class="company-name">Empresa XYZ</p>
+          <p class="job-description">Buscamos un ingeniero de software para trabajar en proyectos de desarrollo de software a gran escala. Convenio con el IPN.</p>
+          <button class="apply-button">Aplicar</button>
+        </article>
+      </section>
+
+      <section id="area-datos">
+        <h2>Área de Datos</h2>
+        <article class="job-listing">
+          <h3 class="job-title">Analista de Datos</h3>
+          <p class="company-name">Empresa 123</p>
+          <p class="job-description">Se requiere analista de datos con experiencia en Python y SQL. Oportunidad para estudiantes del IPN.</p>
+          <button class="apply-button">Aplicar</button>
+        </article>
+      </section>
+
+      <section id="area-redes">
+        <h2>Área de Redes</h2>
+        <article class="job-listing">
+          <h3 class="job-title">Ingeniero de Redes</h3>
+          <p class="company-name">Empresa XYZ</p>
+          <p class="job-description">Buscamos un ingeniero de redes para administrar y mantener nuestra infraestructura de red. Requisitos: conocimientos en enrutamiento, switching y seguridad.</p>
+          <button class="apply-button">Aplicar</button>
+        </article>
+      </section>
+
+      <section id="area-seguridad">
+        <h2>Área de Seguridad</h2>
+        <article class="job-listing">
+          <h3 class="job-title">Especialista en Seguridad Informática</h3>
+          <p class="company-name">Empresa 123</p>
+          <p class="job-description">Estamos buscando un especialista en seguridad informática para proteger nuestros sistemas y datos sensibles.</p>
+          <button class="apply-button">Aplicar</button>
+        </article>
+      </section>
+    </main>
+  </section>
+
+  <div id="alerts-container">
+    <h2 id="alerts-title">Alertas</h2>
+    <article class="alert-item">
+      <p class="alert-description">1 persona ha aplicado a tu oferta de Desarrollador Front-end.</p>
+    </article>
+    <article class="alert-item">
+      <p class="alert-description">3 personas han aplicado a tu oferta de Ingeniero de Redes.</p>
+    </article>
+  </div>
+
+  <div class="bell-icon">
+    <img src="https://cdn-icons-png.flaticon.com/512/54/54810.png" alt="Icono de campana" width="20">
+  </div>
+
+  <footer>
+    <p>© 2023 Bolsa de Trabajo. Todos los derechos reservados.</p>
+  </footer>
+
+  <div class="message-icon">
+    <img src="https://icons.veryicon.com/png/o/object/material-design-icons-1/logout-13.png" alt="Icono de mensajes" width="20">
+  </div>
+
+  <a class="logout-link" href="#">Cerrar sesión</a>
+
+  <script>
+    const messageIcon = document.querySelector(".message-icon");
+    const alertsContainer = document.getElementById("alerts-container");
+
+    messageIcon.addEventListener("click", () => {
+      alertsContainer.style.display = "block";
+    });
+  </script>
+</body>
+</html>
