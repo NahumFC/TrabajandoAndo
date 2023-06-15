@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="es">
+  <link rel="stylesheet" href="../public/CSS/principalA.css">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bolsa de Trabajo</title>
+ 
+</head>
+
+<body>
+  <header>
+    <img id="logo" src="../public/IMG/img.png" alt="Logo de la Bolsa de Trabajo" class="marc-img1">
+
+    <div id="search-container">
+      <input type="text" id="search-input" placeholder="¿Buscas alguna empresa?">
+      <button id="search-button">Buscar</button>
+    </div>
+
+    <div class="profile-menu">
+      <div class="action">
+        <img src="../public/IMG/profile.jpg" />
+      </div>
+      <div class="menu">
+        <div class="profile">
+          <img src="../public/IMG/profile.jpg" />
+          <div class="info">
+            <h2>Keanu Reeves</h2>
+            <p>2022630599</p>
+          </div>
+        </div>
+        <hr>
+        <ul>
+          <li>
+            <img src="../public/IMG/user.png" />
+            <a href="perfilA">Cuenta</a>
+          </li>
+          <li>
+            <img src="../public/IMG/edit.png" />
+            <a href="#">Editar Perfil</a>
+          </li>
+          <li>
+            <img src="../public/IMG/mail.png" />
+            <a href="#">Buzón</a>
+          </li>
+          <li>
+            <img src="../public/IMG/help.png" />
+            <a href="#">Ayuda</a>
+          </li>
+          <li>
+            <img src="../public/IMG/logout.png" />
+            <a href="#">Cerrar Sesión</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </header>
+
+  <div class="container">
+    <div class="navigation">
+        <ul>
+            <li>
+                <a href="#">
+                    <span class="icon">
+                    </span>
+                    <span class="title">Áreas</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="#area-desarrollo">
+                    <span class="icon">
+                      <img src="../public/IMG/programming.png">
+                    </span>
+                    <span class="title">Desarrollo</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="#area-datos">
+                    <span class="icon">
+                      <img src="../public/IMG/programming.png">
+
+                    </span>
+                    <span class="title">Dátos</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="#area-redes">
+                    <span class="icon">
+                      <img src="../public/IMG/programming.png">
+                    </span>
+                    <span class="title">Redes</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="#area-seguridad">
+                    <span class="icon">
+                      <img src="../public/IMG/programming.png">
+                    </span>
+                    <span class="title">Seguridad</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <main id="main-content">
+      <section id="area-desarrollo">
+        <h2>Área de Desarrollo</h2>
+        <article class="job-listing">
+          <h3 class="job-title">Desarrollador Front-end</h3>
+          <p class="company-name">Empresa ABC</p>
+          <p class="job-description">Estamos buscando un desarrollador front-end con experiencia en HTML, CSS y JavaScript. ¡Únete a nuestro equipo!</p>
+          <button class="apply-button">Aplicar</button>
+        </article>
+
+        <article class="job-listing">
+          <h3 class="job-title">Ingeniero de Software</h3>
+          <p class="company-name">Empresa XYZ</p>
+          <p class="job-description">Buscamos un ingeniero de software para trabajar en proyectos de desarrollo de software a gran escala. Convenio con el IPN.</p>
+          <button class="apply-button">Aplicar</button>
+        </article>
+      </section>
+
+      <section id="area-datos">
+        <h2>Área de Datos</h2>
+        <article class="job-listing">
+          <h3 class="job-title">Analista de Datos</h3>
+          <p class="company-name">Empresa 123</p>
+          <p class="job-description">Se requiere analista de datos con experiencia en Python y SQL. Oportunidad para estudiantes del IPN.</p>
+          <button class="apply-button">Aplicar</button>
+        </article>
+      </section>
+
+      <section id="area-redes">
+        <h2>Área de Redes</h2>
+        <article class="job-listing">
+          <h3 class="job-title">Ingeniero de Redes</h3>
+          <p class="company-name">Empresa XYZ</p>
+          <p class="job-description">Buscamos un ingeniero de redes para administrar y mantener nuestra infraestructura de red. Requisitos: conocimientos en enrutamiento, switching y seguridad.</p>
+          <button class="apply-button">Aplicar</button>
+        </article>
+      </section>
+
+      <section id="area-seguridad">
+        <h2>Área de Seguridad</h2>
+        <article class="job-listing">
+          <h3 class="job-title">Especialista en Seguridad Informática</h3>
+          <p class="company-name">Empresa 123</p>
+          <p class="job-description">Estamos buscando un especialista en seguridad informática para proteger nuestros sistemas y datos sensibles.</p>
+          <button class="apply-button">Aplicar</button>
+        </article>
+      </section>
+    </main>
+  </section>
+
+  <footer>
+    <p>© 2023 Bolsa de Trabajo. Todos los derechos reservados.</p>
+  </footer>
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script src="../public/js/principalA.js"></script>
+</body>
+</html>

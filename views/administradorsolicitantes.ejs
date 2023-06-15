@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+    <link rel="stylesheet" href="../public/CSS/administradorsolicitantes.css">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Administrador - Solicitantes</title>
+ 
+</head>
+<body>
+  <header>
+    <h1>Administrador - Solicitantes</h1>
+    <a id="logout-icon" href="">&#128682;</a>
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="administradorinicio">Inicio</a></li>
+      <li><a href="administradorempleos">Empleos</a></li>
+      <li><a href="administradorsolicitantes">Solicitantes</a></li>
+      <li><a href="administradorempresa">Empresas</a></li>
+    </ul>
+  </nav>
+
+  <div class="container">
+    <h2>Solicitantes</h2>
+
+    <div class="applicant-listing">
+      <h3 class="applicant-name">Solicitante A</h3>
+      <p class="applicant-info">Información del solicitante A.</p>
+      <div class="applicant-actions">
+        <button class="view-button">Ver detalles</button>
+        <button class="delete-button">Eliminar</button>
+      </div>
+    </div>
+
+    <div class="applicant-listing">
+      <h3 class="applicant-name">Solicitante B</h3>
+      <p class="applicant-info">Información del solicitante B.</p>
+      <div class="applicant-actions">
+        <button class="view-button">Ver detalles</button>
+        <button class="delete-button">Eliminar</button>
+      </div>
+    </div>
+
+    <div class="applicant-listing">
+      <h3 class="applicant-name">Solicitante C</h3>
+      <p class="applicant-info">Información del solicitante C.</p>
+      <div class="applicant-actions">
+        <button class="view-button">Ver detalles</button>
+        <button class="delete-button">Eliminar</button>
+      </div>
+    </div>
+
+    <button class="add-button">Agregar solicitante</button>
+  </div>
+
+  <footer>
+    <p>Derechos reservados &copy; 2023 Bolsa de Trabajo</p>
+  </footer>
+
+  <script>
+    const addButton = document.querySelector('.add-button');
+
+    addButton.addEventListener('click', () => {
+    });
+  </script>
+</body>
+</html>

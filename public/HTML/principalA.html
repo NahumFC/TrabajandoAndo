@@ -5,41 +5,106 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Bolsa de Trabajo</title>
-  <script>
-    function redireccionar() {
-      window.location.href = "perfilA.html";
-    }
-  </script>
  
 </head>
 
 <body>
   <header>
-    <img id="logo" src="" alt="Logo de la Bolsa de Trabajo">
+    <img id="logo" src="../IMG/img.png" alt="Logo de la Bolsa de Trabajo" class="marc-img1">
 
     <div id="search-container">
-      <input type="text" id="search-input" placeholder="Buscar ofertas de trabajo o perfiles de personas">
+      <input type="text" id="search-input" placeholder="¿Buscas alguna empresa?">
       <button id="search-button">Buscar</button>
-      <button onclick="redireccionar()" id="search-button">Perfil</button>
+    </div>
+
+    <div class="profile-menu">
+      <div class="action">
+        <img src="../IMG/profile.jpg" />
+      </div>
+      <div class="menu">
+        <div class="profile">
+          <img src="../IMG/profile.jpg" />
+          <div class="info">
+            <h2>Keanu Reeves</h2>
+            <p>2022630599</p>
+          </div>
+        </div>
+        <hr>
+        <ul>
+          <li>
+            <img src="../IMG/user.png" />
+            <a href="perfilA.html">Cuenta</a>
+          </li>
+          <li>
+            <img src="../IMG/edit.png" />
+            <a href="#">Editar Perfil</a>
+          </li>
+          <li>
+            <img src="../IMG/mail.png" />
+            <a href="#">Buzón</a>
+          </li>
+          <li>
+            <img src="../IMG/help.png" />
+            <a href="#">Ayuda</a>
+          </li>
+          <li>
+            <img src="../IMG/logout.png" />
+            <a href="#">Cerrar Sesión</a>
+          </li>
+        </ul>
+      </div>
     </div>
   </header>
 
-  <section id="content">
-    <aside class="sidebar">
-      <h2 class="sidebar-title">Áreas</h2>
-      <nav class="sidebar-item">
-        <a class="sidebar-link" href="#area-desarrollo">Desarrollo</a>
-      </nav>
-      <nav class="sidebar-item">
-        <a class="sidebar-link" href="#area-datos">Datos</a>
-      </nav>
-      <nav class="sidebar-item">
-        <a class="sidebar-link" href="#area-redes">Redes</a>
-      </nav>
-      <nav class="sidebar-item">
-        <a class="sidebar-link" href="#area-seguridad">Seguridad</a>
-      </nav>
-    </aside>
+  <div class="container">
+    <div class="navigation">
+        <ul>
+            <li>
+                <a href="#">
+                    <span class="icon">
+                    </span>
+                    <span class="title">Áreas</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="#area-desarrollo">
+                    <span class="icon">
+                      <img src="../IMG/programming.png">
+                    </span>
+                    <span class="title">Desarrollo</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="#area-datos">
+                    <span class="icon">
+                      <img src="../IMG/programming.png">
+
+                    </span>
+                    <span class="title">Dátos</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="#area-redes">
+                    <span class="icon">
+                      <img src="../IMG/programming.png">
+                    </span>
+                    <span class="title">Redes</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="#area-seguridad">
+                    <span class="icon">
+                      <img src="../IMG/programming.png">
+                    </span>
+                    <span class="title">Seguridad</span>
+                </a>
+            </li>
+        </ul>
+    </div>
 
     <main id="main-content">
       <section id="area-desarrollo">
@@ -91,37 +156,11 @@
     </main>
   </section>
 
-  <div id="alerts-container">
-    <h2 id="alerts-title">Alertas</h2>
-    <article class="alert-item">
-      <p class="alert-description">1 persona ha aplicado a tu oferta de Desarrollador Front-end.</p>
-    </article>
-    <article class="alert-item">
-      <p class="alert-description">3 personas han aplicado a tu oferta de Ingeniero de Redes.</p>
-    </article>
-  </div>
-
-  <div class="bell-icon">
-    <img src="https://cdn-icons-png.flaticon.com/512/54/54810.png" alt="Icono de campana" width="20">
-  </div>
-
   <footer>
     <p>© 2023 Bolsa de Trabajo. Todos los derechos reservados.</p>
   </footer>
 
-  <div class="message-icon">
-    <img src="https://icons.veryicon.com/png/o/object/material-design-icons-1/logout-13.png" alt="Icono de mensajes" width="20">
-  </div>
-
-  <a class="logout-link" href="#">Cerrar sesión</a>
-
-  <script>
-    const messageIcon = document.querySelector(".message-icon");
-    const alertsContainer = document.getElementById("alerts-container");
-
-    messageIcon.addEventListener("click", () => {
-      alertsContainer.style.display = "block";
-    });
-  </script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="../js/principalA.js"></script>
 </body>
 </html>

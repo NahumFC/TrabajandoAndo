@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="es">
+    <link rel="stylesheet" href="../public/CSS/principalE.css">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<% if(session.tipo == 1) { %>
+<title>Bolsa de Trabajo - Perfiles de Alumnos</title>
+ 
+</head>
+<body>
+  <header>
+    <img id="logo" src="" alt="Logo de la Bolsa de Trabajo">
+
+    <div id="search-container">
+      <input type="text" id="search-input" placeholder="Buscar perfiles de alumnos">
+      <button id="search-button">Buscar</button>
+    </div>
+  </header>
+
+  <section id="content">
+    <aside class="sidebar">
+      <h2 class="sidebar-title">Áreas</h2>
+      <nav class="sidebar-item">
+        <a class="sidebar-link" href="#area-desarrollo">Desarrollo</a>
+      </nav>
+      <nav class="sidebar-item">
+        <a class="sidebar-link" href="#area-datos">Datos</a>
+      </nav>
+      <nav class="sidebar-item">
+        <a class="sidebar-link" href="#area-redes">Redes</a>
+      </nav>
+      <nav class="sidebar-item">
+        <a class="sidebar-link" href="#area-seguridad">Seguridad</a>
+      </nav>
+    </aside>
+
+    <main id="main-content">
+        <section id="area-desarrollo">
+          <h2>Área de Desarrollo</h2>
+          <article class="profile">
+            <h3 class="profile-name">Juan Pérez</h3>
+            <p class="university-name">Universidad XYZ</p>
+            <p class="profile-description">Estudiante de Ingeniería en Sistemas con habilidades en programación web y desarrollo de aplicaciones. Dispuesto a aprender y crecer profesionalmente.</p>
+            <button class="contact-button">Contactar</button>
+            <button class="view-profile-button">Ver perfil</button>
+          </article>
+  
+          <article class="profile">
+            <h3 class="profile-name">María Gómez</h3>
+            <p class="university-name">Universidad ABC</p>
+            <p class="profile-description">Apasionada por el diseño de interfaces y la usabilidad. Con experiencia en prototipado y desarrollo front-end.</p>
+            <button class="contact-button">Contactar</button>
+            <button class="view-profile-button">Ver perfil</button>
+          </article>
+        </section>
+  
+        <section id="area-datos">
+          <h2>Área de Datos</h2>
+          <article class="profile">
+            <h3 class="profile-name">Pedro Rodríguez</h3>
+            <p class="university-name">Instituto XYZ</p>
+            <p class="profile-description">Estudiante de Ciencias de la Computación con enfoque en análisis de datos y machine learning. Capacidad para trabajar en equipo y resolver problemas complejos.</p>
+            <button class="contact-button">Contactar</button>
+            <button class="view-profile-button">Ver perfil</button>
+          </article>
+        </section>
+  
+        <section id="area-redes">
+          <h2>Área de Redes</h2>
+          <article class="profile">
+            <h3 class="profile-name">Laura López</h3>
+            <p class="university-name">Universidad 123</p>
+            <p class="profile-description">Interesada en el diseño y configuración de redes. Conocimientos en enrutamiento, switching y seguridad de redes.</p>
+            <button class="contact-button">Contactar</button>
+            <button class="view-profile-button">Ver perfil</button>
+          </article>
+        </section>
+  
+        <section id="area-seguridad">
+          <h2>Área de Seguridad</h2>
+          <article class="profile">
+            <h3 class="profile-name">Carlos Martínez</h3>
+            <p class="university-name">Universidad ABC</p>
+            <p class="profile-description">Especialista en seguridad informática con experiencia en análisis de riesgos y auditoría de sistemas. Comprometido con la protección de la información.</p>
+            <button class="contact-button">Contactar</button>
+            <button class="view-profile-button">Ver perfil</button>
+          </article>
+        </section>
+      </main>
+    </section>
+  
+    <div id="alerts-container">
+      <h2 id="alerts-title">Alertas</h2>
+      <article class="alert-item">
+        <p class="alert-description">1 persona ha contactado a Juan Pérez .</p>
+      </article>
+      <article class="alert-item">
+        <p class="alert-description">3 personas han contactado a Laura López .</p>
+      </article>
+    </div>
+  
+    <div class="bell-icon">
+      <img src="https://cdn-icons-png.flaticon.com/512/54/54810.png" alt="Icono de campana" width="20">
+    </div>
+  
+    <footer>
+      <p>© 2023 Bolsa de Trabajo. Todos los derechos reservados.</p>
+    </footer>
+  
+    <div class="message-icon">
+      <img src="https://icons.veryicon.com/png/o/object/material-design-icons-1/logout-13.png" alt="Icono de mensajes" width="20">
+    </div>
+  
+    <a class="logout-link" href="#">Cerrar sesión</a>
+
+<% }else if(session.permiso == 0){ %>
+  <title>Bolsa de Trabajo</title>
+ 
+</head>
+
+<body>
+  <header>
+    <img id="logo" src="../public/IMG/img.png" alt="Logo de la Bolsa de Trabajo" class="marc-img1">
+
+    <div id="search-container">
+      <input type="text" id="search-input" placeholder="¿Buscas alguna empresa?">
+      <button id="search-button">Buscar</button>
+    </div>
+
+    <div class="profile-menu">
+      <div class="action">
+        <img src="../public/IMG/profile.jpg" />
+      </div>
+      <div class="menu">
+        <div class="profile">
+          <img src="../public/IMG/profile.jpg" />
+          <div class="info">
+            <h2>Keanu Reeves</h2>
+            <p>2022630599</p>
+          </div>
+        </div>
+        <hr>
+        <ul>
+          <li>
+            <img src="../public/IMG/user.png" />
+            <a href="perfilA">Cuenta</a>
+          </li>
+          <li>
+            <img src="../public/IMG/edit.png" />
+            <a href="#">Editar Perfil</a>
+          </li>
+          <li>
+            <img src="../public/IMG/mail.png" />
+            <a href="#">Buzón</a>
+          </li>
+          <li>
+            <img src="../public/IMG/help.png" />
+            <a href="#">Ayuda</a>
+          </li>
+          <li>
+            <img src="../public/IMG/logout.png" />
+            <a href="#">Cerrar Sesión</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </header>
+
+  <div class="container">
+    <div class="navigation">
+        <ul>
+            <li>
+                <a href="#">
+                    <span class="icon">
+                    </span>
+                    <span class="title">Áreas</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="#area-desarrollo">
+                    <span class="icon">
+                      <img src="../public/IMG/programming.png">
+                    </span>
+                    <span class="title">Desarrollo</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="#area-datos">
+                    <span class="icon">
+                      <img src="../public/IMG/programming.png">
+
+                    </span>
+                    <span class="title">Dátos</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="#area-redes">
+                    <span class="icon">
+                      <img src="../public/IMG/programming.png">
+                    </span>
+                    <span class="title">Redes</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="#area-seguridad">
+                    <span class="icon">
+                      <img src="../public/IMG/programming.png">
+                    </span>
+                    <span class="title">Seguridad</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <main id="main-content">
+      <section id="area-desarrollo">
+        <h2>Área de Desarrollo</h2>
+        <article class="job-listing">
+          <h3 class="job-title">Desarrollador Front-end</h3>
+          <p class="company-name">Empresa ABC</p>
+          <p class="job-description">Estamos buscando un desarrollador front-end con experiencia en HTML, CSS y JavaScript. ¡Únete a nuestro equipo!</p>
+          <button class="apply-button">Aplicar</button>
+        </article>
+
+        <article class="job-listing">
+          <h3 class="job-title">Ingeniero de Software</h3>
+          <p class="company-name">Empresa XYZ</p>
+          <p class="job-description">Buscamos un ingeniero de software para trabajar en proyectos de desarrollo de software a gran escala. Convenio con el IPN.</p>
+          <button class="apply-button">Aplicar</button>
+        </article>
+      </section>
+
+      <section id="area-datos">
+        <h2>Área de Datos</h2>
+        <article class="job-listing">
+          <h3 class="job-title">Analista de Datos</h3>
+          <p class="company-name">Empresa 123</p>
+          <p class="job-description">Se requiere analista de datos con experiencia en Python y SQL. Oportunidad para estudiantes del IPN.</p>
+          <button class="apply-button">Aplicar</button>
+        </article>
+      </section>
+
+      <section id="area-redes">
+        <h2>Área de Redes</h2>
+        <article class="job-listing">
+          <h3 class="job-title">Ingeniero de Redes</h3>
+          <p class="company-name">Empresa XYZ</p>
+          <p class="job-description">Buscamos un ingeniero de redes para administrar y mantener nuestra infraestructura de red. Requisitos: conocimientos en enrutamiento, switching y seguridad.</p>
+          <button class="apply-button">Aplicar</button>
+        </article>
+      </section>
+
+      <section id="area-seguridad">
+        <h2>Área de Seguridad</h2>
+        <article class="job-listing">
+          <h3 class="job-title">Especialista en Seguridad Informática</h3>
+          <p class="company-name">Empresa 123</p>
+          <p class="job-description">Estamos buscando un especialista en seguridad informática para proteger nuestros sistemas y datos sensibles.</p>
+          <button class="apply-button">Aplicar</button>
+        </article>
+      </section>
+    </main>
+  </section>
+
+  <footer>
+    <p>© 2023 Bolsa de Trabajo. Todos los derechos reservados.</p>
+  </footer>
+<% } else {%>
+
+  <title>Bolsa de Trabajo - Error</title>
+
+</head>
+
+<body>
+  <h1>Error</h1>
+</body>
+
+<% } %>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script src="../public/js/principalA.js"></script>
+</body>
+</html>
