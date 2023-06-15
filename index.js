@@ -31,40 +31,54 @@ app.use(session({
 /** Rutas */
 app.get('/', (req, res) => res.render('index'))
 app.get('/login', (req, res) => res.render('login'))
+app.get('/principalE', (req, res) => {
+
+	if(req.session.tipo != null){
+
+	res.render('principalE')
+
+	}else{
+		console.log("no hay sesion");
+		res.redirect('/login');
+	}
+
+})
 app.post('/agregar', (req, res) => {
 
-    con.connect(function(err) {
+    con.connect(async function(err) {
         if (err) throw err;
         console.log("Connected!");
 
         let sql = `SELECT * FROM usuario WHERE boleta = ? AND pass = ?`
         con.query({sql, values: [req.body.boleta, req.body.pass]}, function(err, result) {
 
-			if (err) {
 
-				console.log(err)
-				throw err
-			};
-			console.log(result)
 
             req.session.idUser = result[0].id;
+			console.log(req.session.idUser);
 			req.session.boleta = result[0].boleta;
+			console.log(req.session.boleta);
 			req.session.nombre = result[0].nombre;
-			req.session.apellido = result[0].apellido;
+			console.log(req.session.nombre);
+			req.session.apMat = result[0].apMat;
+			console.log(req.session.apMat);
 			req.session.email = result[0].email;
 			req.session.pass = result[0].pass;	
 			req.session.tipo = result[0].tipo;
 			req.session.foto = result[0].foto;
 			req.session.save();
-			res.send(result[0]);
-			res.redirect('/principalE');
+			console.log("sesion guardada");
+			
 
             
         })
 
+			
+
       });
     
-    res.render('login')
+	  //res.send(req.session);
+	  res.redirect('/principalE');
 
 })
 
