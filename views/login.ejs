@@ -4,18 +4,19 @@
     <meta charset="utf-8">
     <title>Login Form Design One | Fazt</title>
     <link rel="stylesheet" href="../public/CSS/login.css">
+    <script src="../public/js/validaciones.js"></script>
   </head>
   <body>
 
     <div class="login-box">
       <img src="../public/IMG/img.png" class="avatar" alt="Logo">
       <h1>Iniciar Sesión</h1>
-      <form>
+      <form method="post" action="login" name="formulario" id="formulario">
         <label for="username">Boleta</label>
-        <input type="text" placeholder="Ingresa tu Boleta">
+        <input type="text" placeholder="Ingresa tu Boleta" name="boleta" id="boleta">
 
         <label for="password">Ingresa tu Contraseña</label>
-        <input type="password" placeholder="Ingresa tu Contraseña">
+        <input type="password" placeholder="Ingresa tu Contraseña" id="pass" name="pass">
         <input type="submit" value="Iniciar Sesión">
       </form>
     </div>
