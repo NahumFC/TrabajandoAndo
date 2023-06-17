@@ -21,6 +21,19 @@ app.set('view engine', 'ejs');
 app.use(express.static('HTML'));
 app.use(bodyParser.urlencoded({extended : true}));
 
+/**Objeto user */
+var user = {
+	id: 0,
+	boleta: "",
+	nombre: "",
+	apPat: "",
+	apMat: "",
+	email: "",
+	pass: "",
+	tipo: "",
+
+}
+
 /**Cookies de sesion */
 app.use(session({
 	secret: 'secret',
@@ -28,19 +41,22 @@ app.use(session({
 	saveUninitialized: true
 }));
 
+
 /** Rutas */
 app.get('/', (req, res) => res.render('index'))
 app.get('/login', (req, res) => res.render('login'))
 app.get('/principalE', (req, res) => {
 
-	if(req.session.tipo != null){
+	app.use(function (req,res,next) {
+
+		res.locals.user = req.session.user;
+		next()
+	
+	})
 
 	res.render('principalE')
 
-	}else{
-		console.log("no hay sesion");
-		res.redirect('/login');
-	}
+	
 
 })
 app.post('/agregar', (req, res) => {
@@ -53,6 +69,17 @@ app.post('/agregar', (req, res) => {
         con.query({sql, values: [req.body.boleta, req.body.pass]}, function(err, result) {
 
 
+			if (err) throw err;
+
+			user.id = result[0].id;
+			user.boleta = result[0].boleta;
+			user.nombre = result[0].nombre;
+			user.apPat = result[0].apPat;
+			user.apMat = result[0].apMat;
+			user.email = result[0].email;
+			user.pass = result[0].pass;
+			user.tipo = result[0].tipo;
+			
 
             req.session.idUser = result[0].id;
 			console.log(req.session.idUser);
@@ -67,7 +94,7 @@ app.post('/agregar', (req, res) => {
 			req.session.tipo = result[0].tipo;
 			req.session.foto = result[0].foto;
 			req.session.save();
-			console.log("sesion guardada");
+			console.log(req.headers.cookie);
 			
 
             
