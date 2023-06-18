@@ -62,6 +62,7 @@ header {
   position: fixed;
   top: 12px;
   right: 30px;
+  
 }
 
 .profile-menu .action {
@@ -288,6 +289,8 @@ header {
   flex-wrap: wrap;
   align-items: flex-start;
   justify-content: center;
+  background: url(../IMG/FondoB.jpg) repeat-y;
+
 }
 
 article {

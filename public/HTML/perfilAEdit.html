@@ -61,22 +61,30 @@
     <p class="profile-university">ESCOM</p>
 
     <h2>Descripción</h2>
-    <p class="profile-description">Descripción</p>
+    <div>
+        <textarea type="text" class="profile-description"></textarea>
+    </div>
 
     <h2>Habilidades</h2>
-    <ul class="profile-skills">
-      <li>Habilidad 1</li> 
-      <li>Habilidad 2</li>
-      <li>Habilidad 3</li>
-    </ul>
+    <div id="Skills-container"> 
+        <ul class="profile-skills">     
+            <li><input type="text" class="edit-button" id="Hab-Input"></li>
+            <li><button class="edit-button" onclick="agregarInput()">Agregar Habilidad</button></li>
+        </ul>     
+    </div>
 
     <h2>Experiencia Laboral</h2>
-    <p class="profile-experience">Experiencia</p>
+    <div>
+        <textarea type="text" class="profile-experience"></textarea>
+    </div>
+    
 
-    <button class="edit-button">Editar perfil</button>
+    <button class="edit-button">Guardar</button>
   </div>
 
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="../js/MenuUsuario.js"></script>
+  <script src="../js/ConfigData.js"></script>
+
 </body>
 </html>

@@ -202,6 +202,7 @@ body {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    margin-bottom: 10px;
   }
 
   .profile-skills li {
@@ -211,6 +212,7 @@ body {
     padding: 5px 10px;
     border-radius: 4px;
     font-size: 14px;
+
   }
 
   .profile-description {
@@ -226,7 +228,7 @@ body {
   .edit-button {
     background-color: #007bff;
     color: #fff;
-    border: none;
+    border-color: white;
     padding: 10px 20px;
     border-radius: 4px;
     font-weight: bold;
