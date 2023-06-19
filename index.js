@@ -45,20 +45,19 @@ app.use(session({
 /** Rutas */
 app.get('/', (req, res) => res.render('index'))
 app.get('/login', (req, res) => res.render('login'))
-app.get('/principalE', (req, res) => {
 
-	app.use(function (req,res,next) {
 
-		res.locals.user = req.session.user;
-		next()
+
+app.get('/principalE', isLoggedIn, (req, res) => {
+
+		const {id, boleta, nombre, apPat, apMat, email, pass, permiso} = req.session;
+		console.log(permiso);
+
+		res.render('principalE', {id, boleta, nombre, apPat, apMat, email, pass, permiso});
+
 	
-	})
+});
 
-	res.render('principalE')
-
-	
-
-})
 app.post('/agregar', (req, res) => {
 
     con.connect(async function(err) {
@@ -78,7 +77,9 @@ app.post('/agregar', (req, res) => {
 			user.apMat = result[0].apMat;
 			user.email = result[0].email;
 			user.pass = result[0].pass;
-			user.tipo = result[0].tipo;
+			user.tel = result[0].telefono;
+			user.permiso = result[0].permiso;
+			console.log(result[0].permiso);
 			
 
             req.session.idUser = result[0].id;
@@ -89,12 +90,13 @@ app.post('/agregar', (req, res) => {
 			console.log(req.session.nombre);
 			req.session.apMat = result[0].apMat;
 			console.log(req.session.apMat);
-			req.session.email = result[0].email;
 			req.session.pass = result[0].pass;	
-			req.session.tipo = result[0].tipo;
-			req.session.foto = result[0].foto;
+			console.log(req.session.pass);
+			req.session.tel = result[0].telefono;
+			console.log(req.session.tel);
+			req.session.permiso = result[0].permiso;
+			console.log(req.session.permiso);
 			req.session.save();
-			console.log(req.headers.cookie);
 			
 
             
@@ -108,5 +110,13 @@ app.post('/agregar', (req, res) => {
 	  res.redirect('/principalE');
 
 })
+
+function isLoggedIn(req, res, next) {
+	if(req.session.id != null) {
+		return next();
+	}
+	res.redirect('/login');
+}
+
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))

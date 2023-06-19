@@ -4,7 +4,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<% if(session.tipo == 1) { %>
+<% 
+
+
+
+if( permiso == 1) { %>
 <title>Bolsa de Trabajo - Perfiles de Alumnos</title>
  
 </head>
@@ -114,7 +118,7 @@
   
     <a class="logout-link" href="#">Cerrar sesión</a>
 
-<% }else if(session.permiso == 0){ %>
+<% }else if( permiso == 0){ %>
   <title>Bolsa de Trabajo</title>
  
 </head>
