@@ -58,6 +58,11 @@ app.get('/principalE', isLoggedIn, (req, res) => {
 	
 });
 
+app.post('/logout', isLoggedIn, (req, res) => {
+	req.session.destroy();
+	res.redirect('/');
+})
+
 app.post('/agregar', (req, res) => {
 
     con.connect(async function(err) {
