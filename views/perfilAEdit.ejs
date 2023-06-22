@@ -4,6 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <% if(permiso == 0) %>
   <title>Perfil del Alumno</title>
 </head>
 <body>
@@ -23,8 +24,8 @@
         <div class="profile">
           <img src="../public/IMG/profile.jpg" />
           <div class="info">
-            <h2>Keanu Reeves</h2>
-            <p>2022630599</p>
+            <h2><%= nombre %></h2>
+            <p><%= boleta %></p>
           </div>
         </div>
         <hr>
@@ -57,12 +58,12 @@
   <div class="profile-container">
     <img class="profile-image" src="../public/IMG/profile.jpg" alt="Foto de perfil">
 
-    <h1 class="profile-name">Keanu Reeves</h1>
+    <h1 class="profile-name"> <%= nombre %> </h1>
     <p class="profile-university">ESCOM</p>
 
     <h2>Descripción</h2>
     <div>
-        <textarea type="text" class="profile-description"></textarea>
+        <textarea type="text" class="profile-description"><%= desc %></textarea>
     </div>
 
     <h2>Habilidades</h2>
@@ -75,7 +76,7 @@
 
     <h2>Experiencia Laboral</h2>
     <div>
-        <textarea type="text" class="profile-experience"></textarea>
+        <textarea type="text" class="profile-experience"><%=  %></textarea>
     </div>
     
 
@@ -87,4 +88,38 @@
   <script src="../public/js/ConfigData.js"></script>
 
 </body>
+
+<% else if(permiso == 1){ %>
+  <title>Perfil de la Empresa</title>
+  
+</head>
+<body>
+  <header>
+    <a href="principalE">
+      <img id="logo" src="" alt="bolsa">
+    </a>
+    <a id="profile-link" href="principalE">Volver a la página principal</a>
+  </header>
+
+  <div class="profile-container">
+    <img class="profile-image" src="" alt="Foto de la Empresa">
+
+    <h1 class="profile-name">Nombre de la Empresa</h1>
+    <p class="profile-industry">Industria</p>
+
+    <h2>Descripción</h2>
+    <p class="profile-description">Breve descripción de la empresa y su actividad.</p>
+
+    <button class="contact-button">Contactar</button>
+    <button class="view-profile-button">Ver perfil</button>
+  </div>
+</body>
+<% } else{%>
+  <title>Error</title>
+</head>
+<body>
+  <h1>ERROR</h1>
+  <p>No tienes permiso para estar aquí</p>
+</body>
+<% } %>
 </html>
