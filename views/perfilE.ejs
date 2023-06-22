@@ -1,31 +1,70 @@
 <!DOCTYPE html>
 <html lang="es">
-    <link rel="stylesheet" href="../public/CSS/perfilE.css">
+    <link rel="stylesheet" href="../public/CSS/perfilA.css">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Perfil de la Empresa</title>
-  
+  <title>Perfil de Empresa</title>
 </head>
 <body>
   <header>
-    <a href="principalE">
-      <img id="logo" src="" alt="bolsa">
-    </a>
-    <a id="profile-link" href="principalE">Volver a la página principal</a>
+    <img id="logo" src="../public/IMG/img.png" alt="Logo de la Bolsa de Trabajo" class="marc-img1">
+
+    <div id="search-container">
+      <input hidden type="text" id="search-input" placeholder="¿Buscas alguna empresa?">
+      <button hidden id="search-button">Buscar</button>
+    </div>
+
+    <div class="profile-menu">
+      <div class="action">
+        <img src="../public/IMG/PHuasteco.png" />
+      </div>
+      <div class="menu">
+        <div class="profile">
+          <img src="../public/IMG/PHuasteco.png" />
+          <div class="info">
+            <h2>Los Huastecos</h2>
+          </div>
+        </div>
+        <hr>
+        <ul>
+          <li>
+            <img src="../public/IMG/user.png" />
+            <a href="perfilA">Cuenta</a>
+          </li>
+          <li>
+            <img src="../public/IMG/edit.png" />
+            <a href="perfilAEdit">Editar Perfil</a>
+          </li>
+          <li>
+            <img src="../public/IMG/mail.png" />
+            <a href="#">Buzón</a>
+          </li>
+          <li>
+            <img src="../public/IMG/help.png" />
+            <a href="#">Ayuda</a>
+          </li>
+          <li>
+            <img src="../public/IMG/logout.png" />
+            <a href="#">Cerrar Sesión</a>
+          </li>
+        </ul>
+      </div>
+    </div>
   </header>
 
   <div class="profile-container">
-    <img class="profile-image" src="" alt="Foto de la Empresa">
+    <img class="profile-image" src="../public/IMG/PHuasteco.png" alt="Foto de perfil">
 
-    <h1 class="profile-name">Nombre de la Empresa</h1>
-    <p class="profile-industry">Industria</p>
+    <h1 class="profile-name">Los Huastecos</h1>
 
     <h2>Descripción</h2>
-    <p class="profile-description">Breve descripción de la empresa y su actividad.</p>
+    <p class="profile-description">Descripción</p>
 
-    <button class="contact-button">Contactar</button>
-    <button class="view-profile-button">Ver perfil</button>
+    <button class="edit-button">Editar perfil</button>
   </div>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="../public/js/MenuUsuario.js"></script>
 </body>
 </html>

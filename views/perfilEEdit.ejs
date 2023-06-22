@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
-    <link rel="stylesheet" href="../CSS/perfilA.css">
+    <link rel="stylesheet" href="../public/CSS/perfilA.css">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,7 +8,7 @@
 </head>
 <body>
   <header>
-    <img id="logo" src="../IMG/img.png" alt="Logo de la Bolsa de Trabajo" class="marc-img1">
+    <img id="logo" src="../public/IMG/img.png" alt="Logo de la Bolsa de Trabajo" class="marc-img1">
 
     <div id="search-container">
       <input hidden type="text" id="search-input" placeholder="¿Buscas alguna empresa?">
@@ -17,11 +17,11 @@
 
     <div class="profile-menu">
       <div class="action">
-        <img src="../IMG/PHuasteco.png" />
+        <img src="../public/IMG/PHuasteco.png" />
       </div>
       <div class="menu">
         <div class="profile">
-          <img src="../IMG/PHuasteco.png" />
+          <img src="../public/IMG/PHuasteco.png" />
           <div class="info">
             <h2>Los Huastecos</h2>
           </div>
@@ -29,23 +29,23 @@
         <hr>
         <ul>
           <li>
-            <img src="../IMG/user.png" />
+            <img src="../public/IMG/user.png" />
             <a href="perfilA.html">Cuenta</a>
           </li>
           <li>
-            <img src="../IMG/edit.png" />
+            <img src="../public/IMG/edit.png" />
             <a href="perfilAEdit.html">Editar Perfil</a>
           </li>
           <li>
-            <img src="../IMG/mail.png" />
+            <img src="../public/IMG/mail.png" />
             <a href="#">Buzón</a>
           </li>
           <li>
-            <img src="../IMG/help.png" />
+            <img src="../public/IMG/help.png" />
             <a href="#">Ayuda</a>
           </li>
           <li>
-            <img src="../IMG/logout.png" />
+            <img src="../public/IMG/logout.png" />
             <a href="#">Cerrar Sesión</a>
           </li>
         </ul>
@@ -54,17 +54,19 @@
   </header>
 
   <div class="profile-container">
-    <img class="profile-image" src="../IMG/PHuasteco.png" alt="Foto de perfil">
+    <img class="profile-image" src="../public/IMG/PHuasteco.png" alt="Foto de perfil">
 
     <h1 class="profile-name">Los Huastecos</h1>
 
     <h2>Descripción</h2>
-    <p class="profile-description">Descripción</p>
+    <div>
+        <textarea type="text" class="profile-description"></textarea>
+    </div>
 
-    <button class="edit-button">Editar perfil</button>
+    <button class="edit-button">Guardar</button>
   </div>
 
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <script src="../js/MenuUsuario.js"></script>
+  <script src="../public/js/MenuUsuario.js"></script>
 </body>
 </html>
