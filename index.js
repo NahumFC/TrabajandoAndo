@@ -53,7 +53,14 @@ app.get('/principalE', isLoggedIn, (req, res) => {
 		const {id, boleta, nombre, apPat, apMat, email, pass, permiso} = req.session;
 		console.log(permiso);
 
-		res.render('principalE', {id, boleta, nombre, apPat, apMat, email, pass, permiso});
+		let users = [];
+		let cv = [];
+
+		users = traeUsers();
+
+		cv = traeCV();
+
+		res.render('principalE', {id, boleta, nombre, apPat, apMat, email, pass, permiso, users, cv});
 
 	
 });
@@ -61,6 +68,24 @@ app.get('/principalE', isLoggedIn, (req, res) => {
 app.post('/logout', isLoggedIn, (req, res) => {
 	req.session.destroy();
 	res.redirect('/');
+})
+
+app.post('/adduser', (req, res) => {
+
+	con.connect(async function(err){
+		if (err) throw err;
+
+		let sql = `INSERT INTO usuario (boleta, nombre, apPat, apMat, email, pass, telefono, permiso) VALUES (?, ?, ?, ?, ?, ?, ?, ?)`;
+		con.query({sql, values: [req.body.boleta, req.body.nombre, req.body.apPat, req.body.apMat, req.body.email, req.body.pass, req.body.tel, req.body.permiso]}, function(err, result) {
+			if (err) throw err;
+			console.log("Usuario agregado");
+		}
+		)
+
+		res.redirect('/login');
+
+	})
+
 })
 
 app.post('/agregar', (req, res) => {
@@ -111,8 +136,10 @@ app.post('/agregar', (req, res) => {
 
       });
     
+	  
 	  //res.send(req.session);
-	  res.redirect('/principalE');
+	res.redirect('/principalE');
+	con.destroy()
 
 })
 
@@ -123,5 +150,75 @@ function isLoggedIn(req, res, next) {
 	res.redirect('/login');
 }
 
+
+function traeUsers() {
+	let users = [];
+
+	con.connect(async function(err) {
+		if (err) throw err;
+		console.log("Connected!");
+		let sql = 'SELECT * FROM usuario';
+		con.query(sql, function(err, result) {
+			if (err) throw err;
+
+			
+			for (let i = 0; i < result.length; i++) {
+
+				users.push({
+					id: result[i].id,
+					boleta: result[i].boleta,
+					nombre: result[i].nombre,
+					apPat: result[i].apPat,
+					apMat: result[i].apMat,
+					email: result[i].email,
+					pass: result[i].pass,
+					telefono: result[i].telefono,
+					permiso: result[i].permiso
+				});
+			}
+
+
+		});
+		
+	});
+	con.destroy();
+
+	return users;
+}
+
+function traeCV() {
+	let cv = [];
+
+	con.connect(async function(err) {
+		if (err) throw err;
+		console.log("Connected!");
+		let sql = 'SELECT * FROM cv';
+		con.query(sql, function(err, result) {
+			if (err) throw err;
+
+			
+			for (let i = 0; i < result.length; i++) {
+
+				cv.push({
+					id: result[i].idcv,
+					desc: result[i].desc,
+					est_sec: result[i].est_sec,
+					est_ms: result[i].est_ms,
+					est_sup: result[i].est_sup,
+					exp_lab: result[i].exp_lab,
+					idUser: result[i].usuario_id,
+					skills: result[i].skills
+				});
+			}
+
+
+		});
+		
+	});
+
+	con.destroy();
+
+	return cv;
+}
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))
