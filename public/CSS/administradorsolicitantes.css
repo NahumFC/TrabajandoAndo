@@ -6,11 +6,11 @@
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f5f5f5;
+    background: url(../IMG/FondoC.jpg) no-repeat center top;
   }
 
   header {
-    background-color: #2196f3;
+    background-color: #60263d;
     padding: 20px;
     color: #fff;
     text-align: center;
@@ -33,7 +33,7 @@
   }
 
   nav {
-    background-color: #2196f3;
+    background-color: #60263d;
     padding: 10px;
     color: #fff;
     text-align: center;
@@ -101,7 +101,7 @@
   .view-button,
   .delete-button {
     padding: 5px 10px;
-    background-color: #2196f3;
+    background-color: #60263d;
     color: #fff;
     border: none;
     border-radius: 3px;
@@ -117,7 +117,7 @@
 
   .add-button {
     padding: 10px 20px;
-    background-color: #2196f3;
+    background-color: #60263d;
     color: #fff;
     border: none;
     border-radius: 3px;
