@@ -325,6 +325,25 @@ article {
   font-size: 16px;
   cursor: pointer;
 }
+.acept-button{
+  background-color: #60263d;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.perfil-button{
+  background-color: #60263d;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+}
 
 footer {
   margin-top: 40px;

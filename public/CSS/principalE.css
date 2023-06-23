@@ -316,7 +316,26 @@ article {
   margin-top: 10px;
 }
 
+.job-postulation{
+  margin-top: 10px;
+}
+
+.myTextArea{
+  width: 500px; /* Ancho fijo */
+  height: 150px; /* Altura fija */
+  background-color: white;
+  color: #60263d;
+}
 .contac-button{
+  background-color: #60263d;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+}
+.fail-button{
   background-color: #60263d;
   color: #fff;
   padding: 10px 20px;
