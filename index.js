@@ -151,6 +151,7 @@ function isLoggedIn(req, res, next) {
 }
 
 
+
 function traeUsers() {
 	let users = [];
 
@@ -184,6 +185,46 @@ function traeUsers() {
 	con.destroy();
 
 	return users;
+}
+
+function traeOfertas() {
+
+	let ofertas = [];
+
+	con.connect(async function(err) {
+
+		if (err) throw err;
+		console.log("Connected!");
+		let sql = 'SELECT * FROM oferta';
+		con.query(sql, function(err, result) {
+			if (err) throw err;
+
+			
+			for (let i = 0; i < result.length; i++) {
+
+				ofertas.push({
+					id: result[i].id,
+					nombre: result[i].nombre,
+					desc: result[i].desc,
+					empresa: result[i].empresa,
+					ubicacion: result[i].ubicacion,
+					sueldo: result[i].sueldo,
+					estudios: result[i].estudios,
+					exp: result[i].exp,
+					idioma: result[i].idioma,
+					edad: result[i].edad,
+					sexo: result[i].sexo,
+					tipo: result[i].tipo,
+					contacto: result[i].contacto,
+					idUser: result[i].usuario_id
+				});
+			}
+
+
+		});
+
+	});
+	
 }
 
 function traeCV() {
