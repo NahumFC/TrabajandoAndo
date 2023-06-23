@@ -45,7 +45,15 @@ app.use(session({
 /** Rutas */
 app.get('/', (req, res) => res.render('index'))
 app.get('/login', (req, res) => res.render('login'))
+app.get('/perfilA', isLoggedIn, (req,res) => {res.render('perfilA')})
+app.get('/perfilAEdit', isLoggedIn, (req,res) => {
 
+	const {id, boleta, nombre, apPat, apMat, email, pass, permiso} = req.session;
+	console.log(permiso);
+
+	res.render('perfilAEdit', {id, boleta, nombre, apPat, apMat, email, pass, permiso})
+
+})
 
 
 app.get('/principalE', isLoggedIn, (req, res) => {
@@ -60,52 +68,46 @@ app.get('/principalE', isLoggedIn, (req, res) => {
 
 		cv = traeCV();
 
-		res.render('principalE', {id, boleta, nombre, apPat, apMat, email, pass, permiso, users, cv});
+		if (users.length !=0 && cv.length != 0) {
+			res.render('principalE', {users, cv, id, boleta, nombre, apPat, apMat, email, pass, permiso});
+		}
+			
+		
 
 	
 });
 
-app.post('/eliminarUsuario', isLoggedIn, (req, res) => {
+app.post('/eliminarUsuario', isLoggedIn, async (req, res) => {
 
-	con.connect(async function(err) {
-		if (err) throw err;
-		console.log("Connected!");
+	
 		let sql = `DELETE FROM usuario WHERE id = ?`;
 		con.query({sql, values: [req.body.id]}, function(err, result) {
 			if (err) throw err;
 			console.log("Usuario eliminado");
 		});
 		
-	});
 
 	res.redirect('/principalE');
-	con.destroy();
 
 });
 
-app.post('/eliminarCV', isLoggedIn, (req, res) => {
+app.post('/eliminarCV', isLoggedIn, async (req, res) => {
 	
-	con.connect(async function(err) {
-		if (err) throw err;
-		console.log("Connected!");
+	
 		let sql = `DELETE FROM cv WHERE idcv = ?`;
 		con.query({sql, values: [req.body.id]}, function(err, result) {
 			if (err) throw err;
 			console.log("CV eliminado");
 		});
 		
-	});
 
 	res.redirect('/principalE');
-	con.destroy();
 
 });
 
-app.post('/eliminarOferta', isLoggedIn, (req, res) => {
+app.post('/eliminarOferta', isLoggedIn, async (req, res) => {
 
-	con.connect(async function(err) {
-		if (err) throw err;
-		console.log("Connected!");
+	
 		let sql = `DELETE FROM oferta WHERE id = ?`;
 
 		con.query({sql, values: [req.body.id]}, function(err, result) {
@@ -113,18 +115,13 @@ app.post('/eliminarOferta', isLoggedIn, (req, res) => {
 			console.log("Oferta eliminada");
 		});
 
-	});
 
 	res.redirect('/principalE');
-	con.destroy();
 
 });
 
-app.post('/agregarOferta', isLoggedIn, (req, res) => {
+app.post('/agregarOferta', isLoggedIn, async (req, res) => {
 
-	con.connect(async function(err) {
-		if (err) throw err;
-		console.log("Connected!");
 
 		let sql = `INSERT INTO oferta (nombre, desc, empresa, ubicacion, sueldo, estudios, exp, idioma, edad, sexo, tipo, contacto, usuario_id) V
 		VALUES (?, ?,
@@ -136,18 +133,14 @@ app.post('/agregarOferta', isLoggedIn, (req, res) => {
 			console.log("Oferta agregada");
 		});
 
-	});
 
 	res.redirect('/principalE');
-	con.destroy();
 
 });
 
-app.post('/agregarCV', isLoggedIn, (req, res) => {
+app.post('/agregarCV', isLoggedIn, async (req, res) => {
 
-	con.connect(async function(err) {
-		if (err) throw err;
-		console.log("Connected!");
+	
 
 		let sql = `INSERT INTO cv (desc, est_sec, est_ms, est_sup, exp_lab, usuario_id, skills) VALUES (?, ?, ?, ?, ?, ?, ?)`;
 
@@ -156,18 +149,12 @@ app.post('/agregarCV', isLoggedIn, (req, res) => {
 			console.log("CV agregado");
 		});
 
-	});
 
 	res.redirect('/');
-	con.destroy();
 
 });
 
-app.post('/editarCV', isLoggedIn, (req, res) => {
-
-	con.connect(async function(err) {
-		if (err) throw err;
-		console.log("Connected!");
+app.post('/editarCV', isLoggedIn, async (req, res) => {
 
 		let sql = `UPDATE cv SET desc = ?, est_sec = ?, est_ms = ?, est_sup = ?, exp_lab = ?, skills = ? WHERE idcv = ?`;
 
@@ -176,18 +163,14 @@ app.post('/editarCV', isLoggedIn, (req, res) => {
 			console.log("CV editado");
 		});
 
-	});
 
 	res.redirect('/');
-	con.destroy();
 
 });
 
-app.post('/editarOferta', isLoggedIn, (req, res) => {
+app.post('/editarOferta', isLoggedIn, async (req, res) => {
 
-	con.connect(async function(err) {
-		if (err) throw err;
-		console.log("Connected!");
+	
 
 		let sql = `UPDATE oferta SET nombre = ?, desc = ?, empresa = ?, ubicacion = ?, sueldo = ?, estudios = ?, exp = ?, idioma = ?, edad = ?, sexo = ?, tipo = ?, contacto = ? WHERE id = ?`;
 
@@ -196,19 +179,15 @@ app.post('/editarOferta', isLoggedIn, (req, res) => {
 			console.log("Oferta editada");
 		});
 
-	});
+	
 
 	res.redirect('/');
-	con.destroy();
 
 });
 
-app.post('/editarUsuario', isLoggedIn, (req, res) => {
+app.post('/editarUsuario', isLoggedIn, async (req, res) => {
 
-	con.connect(async function(err) {
-
-		if (err) throw err;
-		console.log("Connected!");
+	
 
 		let sql = `UPDATE usuario SET boleta = ?, nombre = ?, apPat = ?, apMat = ?, email = ?, pass = ?, telefono = ?, permiso = ? WHERE id = ?`;
 
@@ -217,23 +196,20 @@ app.post('/editarUsuario', isLoggedIn, (req, res) => {
 			console.log("Usuario editado");
 		});
 
-	});
 
 	res.redirect('/');
-	con.destroy();
 
 });
 
 
-app.post('/logout', isLoggedIn, (req, res) => {
+app.post('/logout', isLoggedIn, async(req, res) => {
 	req.session.destroy();
 	res.redirect('/');
 })
 
-app.post('/adduser', (req, res) => {
+app.post('/adduser', async (req, res) => {
 
-	con.connect(async function(err){
-		if (err) throw err;
+	
 
 		let sql = `INSERT INTO usuario (boleta, nombre, apPat, apMat, email, pass, telefono, permiso) VALUES (?, ?, ?, ?, ?, ?, ?, ?)`;
 		con.query({sql, values: [req.body.boleta, req.body.nombre, req.body.apPat, req.body.apMat, req.body.email, req.body.pass, req.body.tel, req.body.permiso]}, function(err, result) {
@@ -244,14 +220,12 @@ app.post('/adduser', (req, res) => {
 
 		res.redirect('/login');
 
-	})
 
 })
 
-app.post('/agregar', (req, res) => {
+app.post('/agregar', async (req, res) => {
 
-    con.connect(async function(err) {
-        if (err) throw err;
+    
         console.log("Connected!");
 
         let sql = `SELECT * FROM usuario WHERE boleta = ? AND pass = ?`
@@ -294,12 +268,10 @@ app.post('/agregar', (req, res) => {
 
 			
 
-      });
     
 	  
 	  //res.send(req.session);
 	res.redirect('/principalE');
-	con.destroy()
 
 })
 
@@ -312,11 +284,10 @@ function isLoggedIn(req, res, next) {
 
 
 
-function traeUsers() {
+async function traeUsers() {
 	let users = [];
 
-	con.connect(async function(err) {
-		if (err) throw err;
+	
 		console.log("Connected!");
 		let sql = 'SELECT * FROM usuario';
 		con.query(sql, function(err, result) {
@@ -341,19 +312,15 @@ function traeUsers() {
 
 		});
 		
-	});
-	con.destroy();
 
 	return users;
 }
 
-function traeOfertas() {
+async function traeOfertas() {
 
 	let ofertas = [];
 
-	con.connect(async function(err) {
-
-		if (err) throw err;
+	
 		console.log("Connected!");
 		let sql = 'SELECT * FROM oferta';
 		con.query(sql, function(err, result) {
@@ -383,16 +350,13 @@ function traeOfertas() {
 
 		});
 
-	});
 	
 }
 
-function traeCV() {
+async function traeCV() {
 	let cv = [];
 
-	con.connect(async function(err) {
-		if (err) throw err;
-		console.log("Connected!");
+	
 		let sql = 'SELECT * FROM cv';
 		con.query(sql, function(err, result) {
 			if (err) throw err;
@@ -415,9 +379,7 @@ function traeCV() {
 
 		});
 		
-	});
 
-	con.destroy();
 
 	return cv;
 }
