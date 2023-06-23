@@ -19,7 +19,7 @@ if( permiso == 1) { %>
     <img id="logo" src="../public/IMG/img.png" alt="Logo de la Bolsa de Trabajo" class="marc-img1">
 
     <div id="search-container">
-      <input type="text" id="search-input" placeholder="¿Buscas alguna empresa?">
+      <input type="text" id="search-input" placeholder="¿Buscas algun Alumno?">
       <button id="search-button">Buscar</button>
     </div>
 
@@ -39,15 +39,15 @@ if( permiso == 1) { %>
         <ul>
           <li>
             <img src="../public/IMG/user.png" />
-            <a href="perfilA">Cuenta</a>
+            <a href="perfilE">Cuenta</a>
           </li>
           <li>
             <img src="../public/IMG/edit.png" />
-            <a href="perfilAEdit">Editar Perfil</a>
+            <a href="perfilEEdit">Editar Perfil</a>
           </li>
           <li>
             <img src="../public/IMG/mail.png" />
-            <a href="#">Buzón</a>
+            <a href="buzonEmpresa">Buzón</a>
           </li>
           <li>
             <img src="../public/IMG/help.png" />
@@ -120,6 +120,7 @@ if( permiso == 1) { %>
           <p class="company-name">Universidad XYZ</p>
           <p class="job-description">Estudiante de Ingeniería en Sistemas con habilidades en programación web y desarrollo de aplicaciones. Dispuesto a aprender y crecer profesionalmente.</p>
           <button class="contac-button">Contactar</button><button class="perfil-button" onclick="verPerfilA()">Ver perfil</button>
+          <textarea class="myTextArea"></textarea>
         </article>
 
         <article class="job-listing">
@@ -127,6 +128,7 @@ if( permiso == 1) { %>
           <p class="company-name">Universidad ABC</p>
           <p class="job-description">Apasionada por el diseño de interfaces y la usabilidad. Con experiencia en prototipado y desarrollo front-end.</p>
           <button class="contac-button">Contactar</button><button class="perfil-button" onclick="verPerfilA()">Ver perfil</button>
+          <textarea class="myTextArea"></textarea>
         </article>
       </section>
 
@@ -137,6 +139,7 @@ if( permiso == 1) { %>
           <p class="company-name">Instituto XYZ</p>
           <p class="job-description">Estudiante de Ciencias de la Computación con enfoque en análisis de datos y machine learning. Capacidad para trabajar en equipo y resolver problemas complejos.</p>
           <button class="contac-button">Contactar</button><button class="perfil-button" onclick="verPerfilA()">Ver perfil</button>
+          <textarea class="myTextArea"></textarea>
         </article>
       </section>
 
@@ -147,6 +150,7 @@ if( permiso == 1) { %>
           <p class="company-name">Universidad 123</p>
           <p class="job-description">Interesada en el diseño y configuración de redes. Conocimientos en enrutamiento, switching y seguridad de redes.</p>
           <button class="contac-button">Contactar</button><button class="perfil-button" onclick="verPerfilA()">Ver perfil</button>
+          <textarea class="myTextArea"></textarea>
         </article>
       </section>
 
@@ -157,6 +161,7 @@ if( permiso == 1) { %>
           <p class="company-name">Universidad ABC</p>
           <p class="job-description">Especialista en seguridad informática con experiencia en análisis de riesgos y auditoría de sistemas. Comprometido con la protección de la información.</p>
           <button class="contac-button" >Contactar</button><button class="perfil-button" onclick="verPerfilA()">Ver perfil</button>
+          <textarea class="myTextArea"></textarea>
         </article>
       </section>
     </main>
@@ -208,7 +213,7 @@ if( permiso == 1) { %>
           </li>
           <li>
             <img src="../public/IMG/mail.png" />
-            <a href="#">Buzón</a>
+            <a href="buzonAlumno">Buzón</a>
           </li>
           <li>
             <img src="../public/IMG/help.png" />
@@ -280,7 +285,7 @@ if( permiso == 1) { %>
           <h3 class="job-title">Desarrollador Front-end</h3>
           <p class="company-name">Empresa ABC</p>
           <p class="job-description">Estamos buscando un desarrollador front-end con experiencia en HTML, CSS y JavaScript. ¡Únete a nuestro equipo!</p>
-          <button class="apply-button">Aplicar</button>
+          <button class="apply-button">Aplicar</button><button class="perfil-button" onclick="verPerfilE()">Ver Empresa</button>
           <div class="aviso"></div>
         </article>
 
@@ -288,7 +293,7 @@ if( permiso == 1) { %>
           <h3 class="job-title">Ingeniero de Software</h3>
           <p class="company-name">Empresa XYZ</p>
           <p class="job-description">Buscamos un ingeniero de software para trabajar en proyectos de desarrollo de software a gran escala. Convenio con el IPN.</p>
-          <button class="apply-button">Aplicar</button>
+          <button class="apply-button">Aplicar</button><button class="perfil-button" onclick="verPerfilE()">Ver Empresa</button>
           <div class="aviso"></div>
         </article>
       </section>
@@ -299,7 +304,7 @@ if( permiso == 1) { %>
           <h3 class="job-title">Analista de Datos</h3>
           <p class="company-name">Empresa 123</p>
           <p class="job-description">Se requiere analista de datos con experiencia en Python y SQL. Oportunidad para estudiantes del IPN.</p>
-          <button  class="apply-button">Aplicar</button>
+          <button  class="apply-button">Aplicar</button><button class="perfil-button" onclick="verPerfilE()">Ver Empresa</button>
           <div class="aviso"></div>
         </article>
       </section>
@@ -310,7 +315,7 @@ if( permiso == 1) { %>
           <h3 class="job-title">Ingeniero de Redes</h3>
           <p class="company-name">Empresa XYZ</p>
           <p class="job-description">Buscamos un ingeniero de redes para administrar y mantener nuestra infraestructura de red. Requisitos: conocimientos en enrutamiento, switching y seguridad.</p>
-          <button  class="apply-button">Aplicar</button>
+          <button  class="apply-button">Aplicar</button><button class="perfil-button" onclick="verPerfilE()">Ver Empresa</button>
           <div class="aviso"></div>
         </article>
       </section>
@@ -321,7 +326,7 @@ if( permiso == 1) { %>
           <h3 class="job-title">Especialista en Seguridad Informática</h3>
           <p class="company-name">Empresa 123</p>
           <p class="job-description">Estamos buscando un especialista en seguridad informática para proteger nuestros sistemas y datos sensibles.</p>
-          <button id="apply-button" class="apply-button">Aplicar</button>
+          <button id="apply-button" class="apply-button">Aplicar</button><button class="perfil-button" onclick="verPerfilE()">Ver Empresa</button>
           <div class="aviso"></div>
         </article>
       </section>
