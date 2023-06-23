@@ -178,7 +178,6 @@ header {
   width: 100%;
 }
 
-/* =============== Navigation ================ */
 .navigation {
   position: fixed;
   width: 300px;
@@ -254,7 +253,6 @@ header {
   white-space: nowrap;
 }
 
-/* --------- curve outside ---------- */
 .navigation ul li:hover a::before,
 .navigation ul li.hovered a::before {
   content: "";
@@ -298,7 +296,7 @@ article {
   border: 1px solid #ccc;
   padding: 20px;
   border-radius: 4px;
-  background-color: #f9f9f9;
+  background-color: white;
   max-width: 600px;
   width: 100%;
 }
@@ -399,4 +397,12 @@ footer {
   justify-content: center;
   cursor: pointer;
   z-index: 2;
+}
+
+.aviso {
+  display: none;
+  margin-top: 20px;
+  padding: 10px;
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
 }
