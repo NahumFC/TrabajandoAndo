@@ -65,6 +65,166 @@ app.get('/principalE', isLoggedIn, (req, res) => {
 	
 });
 
+app.post('/eliminarUsuario', isLoggedIn, (req, res) => {
+
+	con.connect(async function(err) {
+		if (err) throw err;
+		console.log("Connected!");
+		let sql = `DELETE FROM usuario WHERE id = ?`;
+		con.query({sql, values: [req.body.id]}, function(err, result) {
+			if (err) throw err;
+			console.log("Usuario eliminado");
+		});
+		
+	});
+
+	res.redirect('/principalE');
+	con.destroy();
+
+});
+
+app.post('/eliminarCV', isLoggedIn, (req, res) => {
+	
+	con.connect(async function(err) {
+		if (err) throw err;
+		console.log("Connected!");
+		let sql = `DELETE FROM cv WHERE idcv = ?`;
+		con.query({sql, values: [req.body.id]}, function(err, result) {
+			if (err) throw err;
+			console.log("CV eliminado");
+		});
+		
+	});
+
+	res.redirect('/principalE');
+	con.destroy();
+
+});
+
+app.post('/eliminarOferta', isLoggedIn, (req, res) => {
+
+	con.connect(async function(err) {
+		if (err) throw err;
+		console.log("Connected!");
+		let sql = `DELETE FROM oferta WHERE id = ?`;
+
+		con.query({sql, values: [req.body.id]}, function(err, result) {
+			if (err) throw err;
+			console.log("Oferta eliminada");
+		});
+
+	});
+
+	res.redirect('/principalE');
+	con.destroy();
+
+});
+
+app.post('/agregarOferta', isLoggedIn, (req, res) => {
+
+	con.connect(async function(err) {
+		if (err) throw err;
+		console.log("Connected!");
+
+		let sql = `INSERT INTO oferta (nombre, desc, empresa, ubicacion, sueldo, estudios, exp, idioma, edad, sexo, tipo, contacto, usuario_id) V
+		VALUES (?, ?,
+		?, ?
+		, ?, ?, ?, ?, ?, ?, ?, ?, ?)`;
+
+		con.query({sql, values: [req.body.nombre, req.body.desc, req.body.empresa, req.body.ubicacion, req.body.sueldo, req.body.estudios, req.body.exp, req.body.idioma, req.body.edad, req.body.sexo, req.body.tipo, req.body.contacto, req.session.idUser]}, function(err, result) {
+			if (err) throw err;
+			console.log("Oferta agregada");
+		});
+
+	});
+
+	res.redirect('/principalE');
+	con.destroy();
+
+});
+
+app.post('/agregarCV', isLoggedIn, (req, res) => {
+
+	con.connect(async function(err) {
+		if (err) throw err;
+		console.log("Connected!");
+
+		let sql = `INSERT INTO cv (desc, est_sec, est_ms, est_sup, exp_lab, usuario_id, skills) VALUES (?, ?, ?, ?, ?, ?, ?)`;
+
+		con.query({sql, values: [req.body.desc, req.body.est_sec, req.body.est_ms, req.body.est_sup, req.body.exp_lab, req.session.idUser, req.body.skills]}, function(err, result) {
+			if (err) throw err;
+			console.log("CV agregado");
+		});
+
+	});
+
+	res.redirect('/');
+	con.destroy();
+
+});
+
+app.post('/editarCV', isLoggedIn, (req, res) => {
+
+	con.connect(async function(err) {
+		if (err) throw err;
+		console.log("Connected!");
+
+		let sql = `UPDATE cv SET desc = ?, est_sec = ?, est_ms = ?, est_sup = ?, exp_lab = ?, skills = ? WHERE idcv = ?`;
+
+		con.query({sql, values: [req.body.desc, req.body.est_sec, req.body.est_ms, req.body.est_sup, req.body.exp_lab, req.body.skills, req.body.id]}, function(err, result) {
+			if (err) throw err;
+			console.log("CV editado");
+		});
+
+	});
+
+	res.redirect('/');
+	con.destroy();
+
+});
+
+app.post('/editarOferta', isLoggedIn, (req, res) => {
+
+	con.connect(async function(err) {
+		if (err) throw err;
+		console.log("Connected!");
+
+		let sql = `UPDATE oferta SET nombre = ?, desc = ?, empresa = ?, ubicacion = ?, sueldo = ?, estudios = ?, exp = ?, idioma = ?, edad = ?, sexo = ?, tipo = ?, contacto = ? WHERE id = ?`;
+
+		con.query({sql, values: [req.body.nombre, req.body.desc, req.body.empresa, req.body.ubicacion, req.body.sueldo, req.body.estudios, req.body.exp, req.body.idioma, req.body.edad, req.body.sexo, req.body.tipo, req.body.contacto, req.body.id]}, function(err, result) {
+			if (err) throw err;
+			console.log("Oferta editada");
+		});
+
+	});
+
+	res.redirect('/');
+	con.destroy();
+
+});
+
+app.post('/editarUsuario', isLoggedIn, (req, res) => {
+
+	con.connect(async function(err) {
+
+		if (err) throw err;
+		console.log("Connected!");
+
+		let sql = `UPDATE usuario SET boleta = ?, nombre = ?, apPat = ?, apMat = ?, email = ?, pass = ?, telefono = ?, permiso = ? WHERE id = ?`;
+
+		con.query({sql, values: [req.body.boleta, req.body.nombre, req.body.apPat, req.body.apMat, req.body.email, req.body.pass, req.body.tel, req.body.permiso, req.body.id]}, function(err, result) {
+			if (err) throw err;
+			console.log("Usuario editado");
+		});
+
+	});
+
+	res.redirect('/');
+	con.destroy();
+
+});
+
+
 app.post('/logout', isLoggedIn, (req, res) => {
 	req.session.destroy();
 	res.redirect('/');
