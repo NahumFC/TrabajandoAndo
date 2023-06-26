@@ -51,9 +51,15 @@ app.get('/perfilAEdit', isLoggedIn, (req,res) => {
 	const {id, boleta, nombre, apPat, apMat, email, pass, permiso} = req.session;
 	console.log(permiso);
 
-	res.render('perfilAEdit', {id, boleta, nombre, apPat, apMat, email, pass, permiso})
+	let cv = [];
+
+	cv = traeCV();
+
+	res.render('perfilAEdit', {id, boleta, nombre, apPat, apMat, email, pass, permiso, cv})
 
 })
+app.get('/buzonAlumno', isLoggedIn, (req,res) => {res.render('buzonAlumno')})
+
 
 
 app.get('/principalE', isLoggedIn, (req, res) => {
@@ -76,6 +82,13 @@ app.get('/principalE', isLoggedIn, (req, res) => {
 
 	
 });
+
+app.get('/logout', isLoggedIn, async(req, res) => {
+	req.session.destroy();
+	console.log("Sesion destruida");
+	console.log(req.session);
+	res.redirect('/');
+})
 
 app.post('/eliminarUsuario', isLoggedIn, async (req, res) => {
 
@@ -201,11 +214,6 @@ app.post('/editarUsuario', isLoggedIn, async (req, res) => {
 
 });
 
-
-app.post('/logout', isLoggedIn, async(req, res) => {
-	req.session.destroy();
-	res.redirect('/');
-})
 
 app.post('/adduser', async (req, res) => {
 
