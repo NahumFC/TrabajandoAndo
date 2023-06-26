@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<link rel="stylesheet" href="../public/CSS/adminE1AM.css"
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Administrador - Bolsa de Trabajo</title>
+</head>
+<body>
+  <header>
+    <h1>Administrador - Bolsa de Trabajo</h1>
+    <a id="logout-icon" href="">&#128682;</a>
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="administradorinicio">Inicio</a></li>
+      <li><a href="administradorempleos">Empleos</a></li>
+      <li><a href="administradorsolicitantes">Solicitantes</a></li>
+      <li><a href="administradorempresa">Empresas</a></li>
+    </ul>
+  </nav>
+
+  <div class="container">
+    <div id="form-container">
+      <h3>Formulario de empleo</h3>
+      <form id="job-form">
+        <label for="job-title">Título del empleo:</label>
+        <input type="text" id="job-title" name="job-title" required>
+
+        <label for="job-description">Descripción del empleo:</label>
+        <textarea id="job-description" name="job-description" required></textarea>
+
+        <div class="form-actions">
+          <button type="submit" class="submit-button">Guardar</button>
+          <button type="button" class="cancel-button">Cancelar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2023 Bolsa de Trabajo. Todos los derechos reservados.</p>
+  </footer>
+</body>
+</html>
